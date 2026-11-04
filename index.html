@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GPX Elevation Profile</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <h1>GPX Elevation Profile</h1>
+    <p class="intro">
+      Choose a GPX file to generate an elevation profile and download it as a wallpaper.
+      The file stays in your browser and is not uploaded anywhere.
+    </p>
+
+    <section class="controls">
+      <label class="file-label" for="gpxFile">Choose GPX file</label>
+      <input id="gpxFile" type="file" accept=".gpx,application/gpx+xml" hidden>
+
+      <button id="downloadButton" type="button" disabled>
+        Download PNG
+      </button>
+
+      <div class="aspect-control">
+        <label for="verticalScale">
+          Vertical exaggeration:
+          <br />
+          (1x = true scale)
+        </label>
+
+        <input
+          id="verticalScale"
+          type="range"
+          min="1"
+          max="10"
+          step="0.25"
+          value="3"
+        >
+
+        <strong id="verticalScaleValue">3×</strong>
+      </div>
+    </section>
+
+    <p id="status" class="status">No file selected.</p>
+
+    <!--find a way to get rid of this completely. Currently, removing it disables the download-->     
+    <section class="stats" id="stats" hidden>
+      <div>
+        <span class="stat-label">Distance</span>
+        <strong id="distanceValue">–</strong>
+      </div>
+      <div>
+        <span class="stat-label">Min elevation</span>
+        <strong id="minElevationValue">–</strong>
+      </div>
+      <div>
+        <span class="stat-label">Max elevation</span>
+        <strong id="maxElevationValue">–</strong>
+      </div>
+    </section>
+
+    <section class="graph-wrapper">
+      <div id="graph"></div>
+    </section>
+
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
